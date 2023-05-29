@@ -1,0 +1,32 @@
+{
+  "include": ["src/**/*", "test/**/*"],
+  "compilerOptions": {
+    // Disabled because of https://github.com/Microsoft/TypeScript/issues/29172
+    "outDir": "dist",
+
+    "module": "node16",
+    "moduleResolution": "node16",
+    "moduleDetection": "force",
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2023"],
+
+    "declaration": true,
+    // "declarationMap": true,
+    // "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "stripInternal": true,
+    "useDefineForClassFields": true
+  }
+}

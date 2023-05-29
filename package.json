@@ -1,0 +1,57 @@
+{
+  "name": "tkv-cache",
+  "version": "0.0.0",
+  "description": "A simple TypeScript Keyv cache",
+  "repository": "rileytomasek/tkv-cache",
+  "license": "MIT",
+  "private": false,
+  "author": {
+    "name": "Riley Tomasek",
+    "email": "hi@rile.yt",
+    "url": "https://rile.yt"
+  },
+  "type": "module",
+  "engines": {
+    "node": "18"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./dist/index.js",
+    "./*": "./dist/*/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "del-cli dist && tsc",
+    "dev": "",
+    "lint": "eslint src --fix",
+    "prepublishOnly": "npm run test && npm run lint",
+    "release": "np",
+    "test": "tsx --test ./test/*.test.ts && npm run typecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hash-obj": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.16",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.41.0",
+    "eslint-config-hckrs": "^0.0.4",
+    "keyv": "^4.5.2",
+    "np": "7.6.3",
+    "prettier": "^2.8.8",
+    "tsx": "^3.12.7",
+    "type-fest": "^3.11.0",
+    "typescript": "^5.0.4"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "packageManager": "npm@9.6.7"
+}
