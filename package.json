@@ -16,10 +16,10 @@
   },
   "exports": {
     "./package.json": "./package.json",
-    ".": "./dist/index.js",
-    "./*": "./dist/*/index.js"
+    ".": "./dist/src/index.js",
+    "./*": "./dist/src/*/index.js"
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -27,7 +27,7 @@
     "build": "del-cli dist && tsc",
     "dev": "",
     "lint": "eslint src --fix",
-    "prepublishOnly": "npm run test && npm run lint",
+    "prepublishOnly": "npm run test && npm run lint && npm run build",
     "release": "np",
     "test": "tsx --test ./test/*.test.ts && npm run typecheck",
     "typecheck": "tsc --noEmit"
