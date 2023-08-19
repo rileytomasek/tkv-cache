@@ -1,6 +1,6 @@
 # TypeScript KvCache
 
-[![Build Status](https://github.com/rileytomasek/kvcache/actions/workflows/main.yml/badge.svg)](https://github.com/rileytomasek/kvcache/actions/workflows/main.yml) [![npm version](https://img.shields.io/npm/v/tkv-cache.svg?color=0c0)](https://www.npmjs.com/package/tkv-cache)
+[![Build Status](https://github.com/rileytomasek/tkv-cache/actions/workflows/main.yml/badge.svg)](https://github.com/rileytomasek/kvcache/actions/workflows/main.yml) [![npm version](https://img.shields.io/npm/v/tkv-cache.svg?color=0c0)](https://www.npmjs.com/package/tkv-cache)
 
 Minimal [Keyv](https://github.com/jaredwray/keyv) powered caching helper with added support for:
 
