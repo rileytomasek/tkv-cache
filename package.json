@@ -33,14 +33,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "hash-obj": "^4.0.0"
+    "hash-obj": "^4.0.0",
+    "keyv": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^18.16.16",
     "del-cli": "^5.0.0",
     "eslint": "^8.41.0",
     "eslint-config-hckrs": "^0.0.4",
-    "keyv": "^4.5.2",
     "np": "7.6.3",
     "prettier": "^2.8.8",
     "tsx": "^3.12.7",

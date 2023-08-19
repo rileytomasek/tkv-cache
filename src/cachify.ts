@@ -1,4 +1,4 @@
-import type Keyv from 'keyv';
+import Keyv from 'keyv';
 import { KvCache } from './kv-cache.js';
 
 // Define helper types to extract value and parameters types
@@ -18,11 +18,11 @@ type ParamsType<T extends (...args: any) => any> = T extends (
  * Note: The first parameter of the function must be the key.
  */
 export function cachify<
-  K extends Keyv<any>,
+  Opts extends Keyv.Options<any>,
   T extends (...args: any[]) => Promise<any>
 >(
-  /** The Keyv instance used for caching. */
-  keyv: K,
+  /** The options for the Keyv instance used for caching. */
+  keyvOpts: Opts,
   /** The function to cache the results of. */
   fn: T,
   /** Normalize the key before caching. */
@@ -30,7 +30,7 @@ export function cachify<
 ): (
   ...args: ParamsType<T>
 ) => Promise<ReturnTypeOf<T> extends Promise<infer U> ? U : any> {
-  const cache = new KvCache(keyv, normalizeKey);
+  const cache = new KvCache(new Keyv(keyvOpts), normalizeKey);
   return async (...args: ParamsType<T>) => {
     const key = args[0];
     const cached = await cache.get(key);

@@ -1,7 +1,7 @@
 import type Keyv from 'keyv';
 import hashObject from 'hash-obj';
 
-type KeyType = string | Record<string, any>;
+export type KeyType = string | Record<string, any>;
 
 /**
  * A simple wrapper around Keyv to support non-string keys.

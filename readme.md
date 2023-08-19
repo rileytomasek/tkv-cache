@@ -48,6 +48,21 @@ const val3 = await cache3.get('KEY'); // val3 is: string | null
 console.log(val3); // 'value' because keys were normalized to 'KEY'
 ```
 
+### Easy KvCache Creation
+
+You can create a `KVCache` instance using the `createKvCache()` function by
+passing in a Keyv options object.
+
+```ts
+const cache = createKvCache<string, string>({
+  ttl: 1000,
+});
+await cache.set('key', 'value');
+const val = await cache.get('key');
+type verify = Expect<Equal<typeof val, string | null>>;
+assert.equal(val, 'value');
+```
+
 ### Cachify
 
 The `cachify` function wraps a function with a `KvCache` and optional key normalization function.
@@ -60,7 +75,7 @@ import { cachify } from 'tkv-cache';
 const func = (key: string) => Promise.resolve(`value for ${key}`);
 
 // The cached function
-const cachedFunc = cachify(new Keyv(), func);
+const cachedFunc = cachify({}, func);
 
 const response = await cachedFunc('key1'); // API call
 const response2 = await cachedFunc('key1'); // Cache hit

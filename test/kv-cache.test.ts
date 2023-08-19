@@ -5,6 +5,7 @@ import assert from 'assert/strict';
 import { describe, it } from 'node:test';
 import Keyv from 'keyv';
 import { KvCache } from '../src/index.js';
+import { createKvCache } from '../src/create-cache.js';
 
 describe('KVCache', () => {
   describe('with string key', () => {
@@ -96,5 +97,26 @@ describe('Delete', () => {
     const val2 = await cache.get('key2');
     assert.equal(val, null);
     assert.equal(val2, null);
+  });
+});
+
+describe('using createKvCache()', () => {
+  it('with string key and string value', async () => {
+    const cache = createKvCache<string, string>({
+      ttl: 1000,
+    });
+    await cache.set('key', 'value');
+    const val = await cache.get('key');
+    type verify = Expect<Equal<typeof val, string | null>>;
+    assert.equal(val, 'value');
+  });
+  it('with object key and object value', async () => {
+    const cache = createKvCache<{ id: string }, { age: number }>({
+      ttl: 1000,
+    });
+    await cache.set({ id: 'fakeid1' }, { age: 10 });
+    const val = await cache.get({ id: 'fakeid1' });
+    type verify = Expect<Equal<typeof val, { age: number } | null>>;
+    assert.deepEqual(val, { age: 10 });
   });
 });
