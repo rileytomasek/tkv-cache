@@ -1,6 +1,6 @@
 {
   "name": "tkv-cache",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "A simple TypeScript Keyv cache",
   "repository": "rileytomasek/tkv-cache",
   "license": "MIT",
