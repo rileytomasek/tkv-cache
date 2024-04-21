@@ -1,5 +1,5 @@
 import type Keyv from 'keyv';
-import hashObject from 'hash-obj';
+import hashObject from 'hash-object';
 
 export type KeyType = string | Record<string, any>;
 
@@ -21,7 +21,9 @@ export class KvCache<Key extends KeyType, Val extends any = any> {
       return normalizedKey;
     } else {
       // Order the keys and hash the object to get a consistent key.
-      return hashObject(normalizedKey);
+      return hashObject(normalizedKey, {
+        algorithm: 'sha512',
+      });
     }
   }
 
